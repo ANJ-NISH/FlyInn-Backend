@@ -30,7 +30,7 @@ router.get("/auth/google/callback", passport.authenticate("google", { failureRed
         sameSite: "none",
         maxAge: 31536000, // 1 hour
     });
-    res.redirect(`http://localhost:5173/`) });
+    res.redirect(`https://flyinn.onrender.com/`) });
 
 
 router.get("/auth/userinfo", getUserinfo);
