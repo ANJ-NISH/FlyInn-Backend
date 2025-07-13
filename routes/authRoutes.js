@@ -26,8 +26,8 @@ router.get("/auth/google/callback", passport.authenticate("google", { failureRed
 
     res.cookie("token", token, {
         httpOnly: true,
-        secure: false, 
-        sameSite: "Strict",
+        secure: true, 
+        sameSite: "none",
         maxAge: 31536000, // 1 hour
     });
     res.redirect(`http://localhost:5173/`) });

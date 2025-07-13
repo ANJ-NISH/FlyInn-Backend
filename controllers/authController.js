@@ -20,7 +20,7 @@ const signorRegister=async (req,res)=>
         
         const token=jwt.sign({name, email}, process.env.JWT_SECRET,{ expiresIn: "8760h" });
 
-        res.cookie("token", token ,{httpOnly: true, secure: false,maxAge: 31536000})
+        res.cookie("token", token ,{httpOnly: true, secure: true, sameSite: 'none', maxAge: 31536000})
         return res.status(201).json({message: "User account created and you are logged in.", name, email})
       })
     }
@@ -31,7 +31,7 @@ const signorRegister=async (req,res)=>
         if(result)
         {
           const token=jwt.sign({name, email}, process.env.JWT_SECRET, { expiresIn: "8760h" });
-          res.cookie("token", token, {httpOnly: true, secure: false,maxAge: 31536000});
+          res.cookie("token", token, {httpOnly: true, secure: true, sameSite: 'none',maxAge: 31536000});
 
           return res.status(200).json({message: "Login successful.", name, email})
         }

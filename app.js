@@ -27,6 +27,6 @@ app.use("/", authRoutes);
 app.use("/accommodation", accommodationRoutes);
 app.use("/hotels", hotelRoutes);
 
-mongoose.connect('mongodb+srv://anuragj990:8LE9RYktlSCnj2c1@cluster0.qtjoh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(()=> {console.log("Connected to MongoDB")}).catch((err)=> {console.log(err)});
+mongoose.connect(process.env.MONGO_URI).then(()=> {console.log("Connected to MongoDB")}).catch((err)=> {console.log(err)});
 
 app.listen(process.env.PORT, ()=> {console.log("server lsitening on PORT 5000.")})
