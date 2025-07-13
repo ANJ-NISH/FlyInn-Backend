@@ -15,7 +15,7 @@ const hotelRoutes=require('./routes/hotelRoutes');
 const app=express();
 
 //midlleware
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(cors({ origin: "https://flyinn.onrender.com", credentials: true }));
 app.use(express.json());
 app.use(session({ secret: process.env.JWT_SECRET, resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
